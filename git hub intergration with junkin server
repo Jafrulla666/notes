@@ -1,0 +1,47 @@
+Git steps
+
+Step 1: Sign up to git account and create first repository 
+
+Step 2: open git bash on your local system and generate the ssh key
+
+	>>>>> ssh-keygen -t rsa -b 4096 -C "<email id >"
+	
+	>>>>> copy pub key to github account to establish secure connection between ur sys and SCM account.
+	
+Step 3 : clone the directory to your local system 
+
+	>>>>> git clone git@github.com:NocTeam-tt/GitDemo-and-test.git
+	
+	>>>>> Always clone the masters to get the latest code 
+	
+Step 4 : set the users and mail to reflect the changes  (your identity)
+
+	>>>>> git config --global user.name "NOC TEAM"
+	
+	>>>>> git config --global user.email "noc_alerts@teamtweaks.com"
+	
+	>>>>> git config --global color.ui "auto"
+	
+	>>>>> git config --global core.editor "<txt edtior>"
+	
+			eg : "'c:/programfile/sublime .../ sublime.exe' -w"
+	
+Step 5 : Add files to SCM 
+
+	>>>>> git add .
+	
+Step 6 : Commit with message
+
+	>>>>> git commit -m "message"
+	
+Step 7 : push to the corresponding branch 
+
+	>>>>> git push origin <branch>
+	
+Step 8 : create the branch.
+
+	>>>> git checkout -b <name of the branch>
+
+
+Added extra line ant the end of the file 
+Second
