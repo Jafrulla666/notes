@@ -22,4 +22,59 @@ creating logical volume
 
 The **-n** option is used to indicate a name for the LV, whereas **-L** sets a fixed size and -l (lowercase L) is used to indicate a percentage of the remaining space in the container VG.
 
+#lvcreate -n vol_projects -L 10G vg00
 
+To check :
+
+#lvs and #lvdisplay
+
+To view information about a single LV, use lvdisplay with the VG and LV as parameters, as follows:
+
+#lvdisplay vg00/vol_projects
+
+======================================================================================================================
+To Apply a file system in the logical volume :
+
+#mkfs.ext4 /dev/vg00/vol_projects
+
+============================================================================================
+To increase the logical volume size:
+
+#lvextend -L +1G -n /dev/vg00/vol_projects
+
+To Decrase the lofical volume size:
+
+#lvreduce -L -2.5G -r /dev/vg00/vol_projects
+=============================================================================================
+To Remove the phisical volume
+
+#vgreduce my_volume_group /dev/hda1
+=========================================================================================
+To Remove the group volume 
+
+#vgchange -a n my_volume_group 
+OR
+#vgremove my_volume_group
+===========================================================================================
+To Remove the logical volume from the group volume:
+
+#lvremove /dev/vg00/vol_projects
+==========================================================================================
+Tempory mounting a logical volume
+
+#mount /dev/vg00/vol_projects /mnt
+=====================================================================================
+permanent mounting a logical volume
+
+#vi /etc/fstab
+
+#uuid ="ffhkuhjvkgfuigf"  /dev/vg00/vol_projects  ext4  defaults  0 0
+#wq
+======================================================================================
+To check uuid value:
+
+#lsblk -f
+OR
+#df -h
+=======================================================================================
+TO Attach a external 
