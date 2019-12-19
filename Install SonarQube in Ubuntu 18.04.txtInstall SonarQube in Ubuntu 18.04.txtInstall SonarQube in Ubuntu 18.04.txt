@@ -1,0 +1,96 @@
+
+Watch Video in youtube ---->  QUICK INSTALL] Install SonarQube 7.5 Analysis on Ubuntu 18.04 
+-------------------------------------------------------------------------------------------------------
+
+Install java version 11 (openjdk)
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt install openjdk-11-jdk
+
+
+install apache2 
+install mysql-server
+
+Append the below lines in the respective files /etc/sysctl.conf & /etc/security/limits.conf
+
+/etc/sysctl.conf
+sysctl -w vm.max_map_count=262144
+sysctl -w fs.file-max=65536
+ulimit -n 65536
+ulimit -u 4096
+
+/etc/security/limits.conf
+
+sonarqube       -       nofile  65536
+sonarqube       -       nproc   4096
+
+-------------------------------------------------------------------------------------------------------
+
+sudo adduser --system --no-create-home --group --disabled-login sonarqube
+sudo mkdir /opt/sonarqube
+sudo apt-get install unzip
+sudo mysql -u root -pfive9@123
+CREATE DATABASE sonarqube;
+CREATE USER sonarqube@'localhost' IDENTIFIED BY 'beek#1234';
+GRANT ALL ON sonarqube.* to sonarqube@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+cd /opt/sonarqube
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.5.zip
+sudo unzip sonarqube-7.5.zip
+sudo rm sonarqube-7.5.zip
+sudo chown -R sonarqube:sonarqube /opt/sonarqube
+sudo nano sonarqube-7.5/conf/sonar.properties
+    sonar.jdbc.username=sonarqube
+    sonar.jdbc.password=beek#1234
+    sonar.jdbc.url=jdbc:mysql://localhost:3306/sonardb?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false&maxAllowedPacket=40000000
+    sonar.web.javaAdditionalOpts=-server
+    sonar.web.host=0.0.0.0
+
+
+sudo nano /etc/systemd/system/sonarqube.service
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/opt/sonarqube/sonarqube-7.5/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/sonarqube-7.5/bin/linux-x86-64/sonar.sh stop
+
+User=sonarqube
+Group=sonarqube
+Restart=always
+
+[Install]
+WantedBy=multi-user.target    
+
+
+sudo service sonarqube start
+service sonarqube status
+sudo systemctl enable sonarqube
+curl http://127.0.0.1:9000
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+sudo mkdir /opt/sonarscanner
+cd /opt/sonarscanner
+sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+sudo unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+sudo rm sonar-scanner-cli-3.2.0.1227-linux.zip
+sudo nano sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties
+    sonar.host.url=http://sonarqube.beek.xyz
+
+sudo chmod +x sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+sudo ln -s /opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
+
+cd ~
+mkdir sonar-test && cd sonar-test
+wget https://github.com/SonarSource/sonar-scanning-examples/archive/master.zip
+unzip master.zip
+rm master.zip
+cd sonar-scanning-examples-master/sonarqube-scanner
+sonar-scanner -D sonar.login=token___
