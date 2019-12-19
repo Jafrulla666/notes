@@ -1,0 +1,25 @@
+Creating Physical Volumes, Volume Groups, and Logical Volumes To create physical volumes on top of /dev/sdb, /dev/sdc, and /dev/sdd, do:
+
+#pvcreate /dev/sdb /dev/sdc /dev/sdd
+
+
+You can list the newly created PVs and check the volume:
+
+#pvs and #pvdisplay /dev/sdX
+======================================================================================================
+
+
+To create a volume group named **vg00** using /dev/sdb and /dev/sdc (we will save /dev/sdd for later to illustrate the possibility of adding other devices to expand storage capacity when needed):
+
+#vgcreate vg00 /dev/sdb /dev/sdc
+
+To check the group:
+
+#vgdisplay vg00  and  #vgs
+
+======================================================================================================
+creating logical volume
+
+The **-n** option is used to indicate a name for the LV, whereas **-L** sets a fixed size and -l (lowercase L) is used to indicate a percentage of the remaining space in the container VG.
+
+
