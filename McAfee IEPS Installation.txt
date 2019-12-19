@@ -1,0 +1,46 @@
+
+Step 1 : Download Endpoint Security  (Free trail)
+	Link ---> https://www.mcafee.com/enterprise/en-in/downloads/trials.html?pid=endpoint-security
+
+Step 2 : Copy the downloaded file to respective Linux Server (preferably on tmp directory) and unzip it.
+	unzip ENSL1022_Eval.zip
+
+Step 3:  extract the below mentioned files.
+	tar -zxvf ISecTP-10.2.2-1098-Eval-standalone.tar.gz
+	tar -zxvf ISecTP-10.2.2-1098-standalone.linux.tar.gz
+	tar -zxvf ESP-10.2.2-1105-Full.linux.tar.gz
+
+Step 4:run ----> cd MA-GENLNX\ 5.0.5\ Build\ 658\ Package\ #1\ \(ENU-LICENSED-RELEASE-MAIN\)/
+
+Step 6 : Always rem to run using dpkg and the run the follwoing commands in order.
+	dpkg -i MFErt.i686.deb
+	 dpkg -i MFEma.x86_64.deb
+
+Step 7: back to the cd ENSL1022_Eval/ and run the script 
+	./install-isectp.sh
+	answer accept and wait till instalation complete.
+
+Step 8: After the successful installation go the /opt you would find the "isec" and "McAfee".
+
+Step 9: Run the folowing commnd 
+
+	 /opt/isec/ens/threatprevention/bin/isecav --help ----------> use this command to check 
+	/opt/isec/ens/threatprevention/bin/isecav --listtasks
+	/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary
+	/opt/isec/ens/threatprevention/bin/isecav --version
+	/opt/isec/ens/threatprevention/bin/isecav --showrepositories
+
+Step 10 : Check its working usng KB90919 Article 
+	wget www.eicar.org/download/eicar.com.txt
+	tail -f 100 /opt/isec/ens/threatprevention/var/isecoasmgr.log
+
+Step 11: Schudle the following command for daily DAT version update
+	/opt/isec/ens/threatprevention/bin/isecav --runtask --index 3  (preferred) 
+
+Step 12 : use KB88223 for the service control in EPS.
+	
+Step 13 : useful KB articles 88812 etc.
+
+
+
+	
