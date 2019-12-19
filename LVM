@@ -77,4 +77,8 @@ To check uuid value:
 OR
 #df -h
 =======================================================================================
-TO Attach a external 
+TO Attach a external Hard disk
+
+#pvcreate /Dev/xvdf
+#vgcreare vg00 /Dev/xvdf
+
