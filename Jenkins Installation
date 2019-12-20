@@ -1,3 +1,48 @@
 Follow the below link to Install and configure Jenkins Server
 
 https://linuxize.com/post/how-to-install-jenkins-on-ubuntu-18-04/
+============================================================================================
+
+Installing jenkin server in ubuntu 18.04 version
+
+Since Jenkins is a Java application, the first step is to install Java. Update the package index and install the Java 8 OpenJDK package with the following commands:
+
+#sudo apt update
+#sudo apt install openjdk-8-jdk
+
+-----Add the Jenkins Debian repository.----------
+
+Import the GPG keys of the Jenkins repository using the following wget command:
+
+#wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+The command above should output OK which means that the key has been successfully imported and packages from this repository will be considered trusted.
+
+Next, add the Jenkins repository to the system with:
+
+#sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+--------------Install Jenkins.-----------------
+
+Once the Jenkins repository is enabled, update the apt package list and install the latest version of Jenkins by typing:
+
+#sudo apt update
+#sudo apt install jenkins
+
+-----------check the jenkins is start and verify it by printing the service status---------------
+
+#systemctl status jenkins
+
+
+--------------------------------Copy the admin key--------------------
+
+During the installation, the Jenkins installer creates an initial 32-character long alphanumeric password. Use the following command to print the password on your terminal:
+
+#sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+copy the key and paste the admin password 
+
+------search in browser by using the server public ip with the jenkin port number---------
+ex= 3.123.43.456:8080
+*****Here it will ask the admin password****
+++++++must you want allow the port number in the server++++++
+=================================================================================================================================
