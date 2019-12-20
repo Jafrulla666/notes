@@ -15,6 +15,7 @@ Since Jenkins is a Java application, the first step is to install Java. Update t
 Import the GPG keys of the Jenkins repository using the following wget command:
 
 #wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
 The command above should output OK which means that the key has been successfully imported and packages from this repository will be considered trusted.
 
 Next, add the Jenkins repository to the system with:
@@ -46,3 +47,50 @@ ex= 3.123.43.456:8080
 *****Here it will ask the admin password****
 ++++++must you want allow the port number in the server++++++
 =================================================================================================================================
+
+Then go to the jenkins web page
+
+Install GIT Plugin
+
+Step 1: Click on the Manage Jenkins button on your Jenkins dashboard:
+Step 2: Click on Manage Plugins:
+Step 3: In the Plugins Page
+select the
+@git plugin
+@Github branch source plugin 
+
+Then click the ***install without restart" button
+====================================================
+Then create a "NEW JOB" 
+Provide name for the project
+The click the "freestyle project" select it.
+Then see the below .there is a option is shown .click the "save" button
+
+ You will see a Git option under Source Code Management if your Git plugin has been installed in Jenkins:
+ 
+ Tick the "GIT" box
+          Then
+Enter the Git repository URL to pull the code from GitHub.
+
+
+Add the "credential" for the GIThub avccount user name,password......
+
+Then save it.
+======================================================================
+Go to the github account 
+
+select reposertry and open it.
+
+if you open the reporsertry you can see the option in below.
+
+select the setting option ....
+
+go to the web hooks ...option
+
+Then give the jenkins URL here....
+
+ex:http://13.234.34.22:8080/
+
+Then close it
+===========================================================
+
