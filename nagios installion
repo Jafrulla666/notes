@@ -1,3 +1,11 @@
+Referance 1:https://www.howtoforge.com/tutorial/ubuntu-nagios/
+
+
+Referance 2:https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-16-04 
+ 
+ 
+ 
+ 
     3  apt update
     4  apt install apache2 -y
     5  apt install mysql-server -y
