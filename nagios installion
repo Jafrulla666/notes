@@ -1,0 +1,98 @@
+    3  apt update
+    4  apt install apache2 -y
+    5  apt install mysql-server -y
+    6  mysql_secure_installation
+    7  mysql
+    8  apt install php libapache2-mod-php php-mysql
+    9  vi /etc/apache2/mods-enabled/dir.conf
+   10  systemctl restart apache2
+   11  systemctl status apache2
+   12  apt search php- | less
+   13  apt install php-cli
+   14  mkdir /var/www/testing
+   15  chown -R user:user /var/www/testing
+   16  chown -R $user:$user /var/www/testing
+   17  ls /var
+   18  ll /var/www
+   19  chown -R $TEST:$TEST /var/www/testing
+   20  ll /var/www
+   21  chown -R TEST:TEST /var/www/testing
+   24  ll /var/www
+   25  chmod -R 755 /var/www/testing
+   26  vi /var/www/testing/index.html
+   27  vi /etc/apache2/sites-available/testing.conf
+   28  a2ensite your_domain.conf
+   29  sudo a2ensite your_domain.conf
+   30  sudo a2ensite testing.conf
+   31  a2dissite 000-default.conf
+   32  apache2ctl configtest
+   33  systemctl restart apache2
+   34  vi /var/www/testing/info.php
+   35  rm /var/www/testing/info.php
+   36  systemctl restart apache2
+   37  npm install raygun --save
+   38  apt install npm
+   39  var raygun = require('raygun');
+   40  var raygun = require('raygun')
+   41  sudo apt-get -y install unzip wget
+   42  adduser --disabled-password --gecos '' raygun
+   43  mkdir /usr/share/Raygun
+   44  chown -R raygun:raygun /usr/share/Raygun
+   45  wget https://downloads.raygun.com/APM/latest/RaygunAgent-netcoreapp2.0-linux-x64.zip
+   46  unzip -d /var/raygun/agent -o RaygunAgent-netcoreapp2.0-linux-x64.zip
+   47  wget https://downloads.raygun.com/APM/latest/RaygunAgent-netcoreapp2.0-linux-x64.zip
+   48  rm RaygunAgent-netcoreapp2.0-linux-x64.zip
+   49  wget https://downloads.raygun.com/APM/latest/RaygunAgent-netcoreapp2.0-linux-x64.zip
+   50  sudo mkdir /var/raygun
+   51  sudo chown -R raygun:raygun /var/raygun
+   52  sudo wget https://downloads.raygun.com/APM/latest/RaygunAgent-netcoreapp2.0-linux-x64.zip
+   53  sudo unzip -d /var/raygun/agent -o RaygunAgent-netcoreapp2.0-linux-x64.zip
+   54  sudo rm RaygunAgent-netcoreapp2.0-linux-x64.zip
+   55  sudo chmod +x /var/raygun/agent/RaygunAgent
+   56  sudo chmod +x /var/raygun/agent/rgc
+   57  sudo wget https://downloads.raygun.com/APM/latest/RaygunAgent-netcoreapp2.0-linux-x64
+   58  sudo wget https://downloads.raygun.com/APM/latest/RaygunAgent-x64
+   59  sudo wget https://downloads.raygun.com/APM/latest/RaygunAgent-x64.zip
+   60  apt install https://downloads.raygun.com/APM/latest/RaygunAgent-x64.msi
+   61  apt install https://downloads.raygun.com/APM/latest/RaygunAgent-x64.pkg
+   62  su
+   63  sudo su
+   64  exit
+   65  cd /
+   66  cd nrpe-nrpe-3.0.0/
+   67  cd src
+   68  vi ./../include/dh.h
+   69  ll
+   70  vi ./../include/dh.h
+   71  make all
+   72  cd /
+   73  cd /tem
+   74  cd /tmp
+   75  wget --no-check-certificate -O nrpe.tar.gz https://github.com/NagiosEnterprises/nrpe/archive/nrpe-3.2.1.tar.gz
+   76  tar xzf nrpe.tar.gz
+   77  cd /tmp/nrpe-nrpe-3.2.1/
+   78  ./configure --enable-command-args
+   79  make all
+   80  ./configure --enable-command-args
+   81  make all
+   82  cd /
+   83  cd nrpe-3.2.1/
+   84  ./configure --enable-command-args
+   85  make all
+   86  cd /
+   87  ls
+   88  vi /usr/local/nagios/etc/objects/commands.cfg
+   89  a2enmod rewrite
+   90  a2enmod cgi
+   91  vi /etc/apache2/sites-available/nagios.conf
+   92  systemctl restart apache2
+   93  systemctl status apache2
+   94  journalctl -xe
+   95  vi /etc/apache2/sites-available/nagios.conf
+   96  systemctl status apache2
+   97  systemctl restart apache2
+   98  vi /etc/systemd/system/nagios.service
+   99  systemctl enable /etc/systemd/system/nagios.service
+  100  systemctl start nagios
+  101  systemctl status nagios
+  102  systemctl restart nagios
