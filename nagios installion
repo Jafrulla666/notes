@@ -104,3 +104,6 @@ Referance 2:https://www.digitalocean.com/community/tutorials/how-to-install-nagi
   100  systemctl start nagios
   101  systemctl status nagios
   102  systemctl restart nagios
+  
+  Don't install NRPE-plugin.
+  use nagios-plugin
